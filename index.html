@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Life — 10. Sınıf İngilizce Modülü</title>
+<style>
+  :root{
+    --indigo:#4338ca;
+    --indigo-light:#eef2ff;
+    --teal:#0d9488;
+    --teal-light:#f0fdfa;
+    --amber:#f59e0b;
+    --amber-light:#fffbeb;
+    --pink:#db2777;
+    --pink-light:#fdf2f8;
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#1e293b;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --radius:16px;
+    --shadow:0 4px 6px -1px rgba(0,0,0,.06),0 2px 4px -2px rgba(0,0,0,.05);
+    --shadow-lg:0 20px 40px -12px rgba(30,41,59,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- HEADER ---------- */
+  header.hero{
+    background:linear-gradient(135deg,#4338ca 0%,#6d28d9 45%,#0d9488 100%);
+    color:#fff;padding:56px 24px 44px;text-align:center;position:relative;overflow:hidden;
+  }
+  header.hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 15% 20%,rgba(255,255,255,.18),transparent 45%),
+               radial-gradient(circle at 85% 80%,rgba(255,255,255,.14),transparent 45%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+  .badge{
+    display:inline-block;background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.35);
+    padding:6px 16px;border-radius:999px;font-size:.8rem;
+    letter-spacing:.09em;text-transform:uppercase;font-weight:600;margin-bottom:18px;
+  }
+  header.hero h1{font-size:clamp(1.7rem,4.5vw,2.7rem);line-height:1.2;font-weight:800;margin-bottom:12px}
+  header.hero p{font-size:clamp(.95rem,2vw,1.1rem);opacity:.94;max-width:680px;margin:0 auto}
+  .hero-stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .hero-stat{
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+    border-radius:12px;padding:10px 18px;min-width:110px;
+  }
+  .hero-stat b{display:block;font-size:1.35rem;font-weight:800}
+  .hero-stat span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;opacity:.88}
+
+  /* ---------- NAV ---------- */
+  nav.sticky{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+    padding:10px 16px;box-shadow:0 2px 10px rgba(0,0,0,.04);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;
+    scrollbar-width:none;justify-content:flex-start;
+  }
+  .nav-inner::-webkit-scrollbar{display:none}
+  .nav-inner a{
+    flex:0 0 auto;text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600;
+    padding:8px 15px;border-radius:999px;border:1px solid transparent;transition:.2s;white-space:nowrap;
+  }
+  .nav-inner a:hover{background:var(--indigo-light);color:var(--indigo)}
+  .nav-inner a.active{background:var(--indigo);color:#fff}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1180px;margin:0 auto;padding:36px 20px 90px}
+  section{margin-bottom:64px;scroll-margin-top:130px}
+  .sec-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:26px}
+  .sec-num{
+    flex:0 0 auto;width:46px;height:46px;border-radius:14px;
+    display:grid;place-items:center;font-weight:800;font-size:1.15rem;color:#fff;
+    background:linear-gradient(135deg,var(--indigo),#6d28d9);
+    box-shadow:0 8px 18px -6px rgba(67,56,202,.5);
+  }
+  .sec-head h2{font-size:clamp(1.25rem,3vw,1.7rem);font-weight:800;line-height:1.25}
+  .sec-head p{color:var(--muted);font-size:.92rem;margin-top:3px}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow);
+  }
+  .card + .card{margin-top:20px}
+  .card h3{font-size:1.05rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  .card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex:0 0 auto}
+
+  /* ---------- TABLES ---------- */
+  .tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin-top:6px}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:620px;background:#fff}
+  thead th{
+    background:#f1f5f9;text-align:left;padding:12px 14px;font-weight:700;
+    font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:#475569;
+    border-bottom:1px solid var(--border);white-space:nowrap;
+  }
+  tbody td{padding:12px 14px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#fafbff}
+  td b, .hl{color:var(--indigo);font-weight:700}
+  .hl-teal{color:var(--teal);font-weight:700}
+  .hl-pink{color:var(--pink);font-weight:700}
+
+  /* ---------- VOCAB CARDS ---------- */
+  .vocab-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));
+    gap:16px;margin-top:6px;
+  }
+  .v-card{perspective:1200px;height:250px;cursor:pointer}
+  .v-inner{
+    position:relative;width:100%;height:100%;
+    transition:transform .65s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;
+  }
+  .v-card.flipped .v-inner{transform:rotateY(180deg)}
+  .v-face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;
+    border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;
+  }
+  .v-front{background:#fff;justify-content:center;align-items:center;text-align:center;gap:8px}
+  .v-front .num{
+    position:absolute;top:12px;left:14px;font-size:.72rem;font-weight:800;
+    color:#c7d2fe;letter-spacing:.06em;
+  }
+  .v-front .word{font-size:1.22rem;font-weight:800;color:var(--indigo);line-height:1.25}
+  .v-front .tr{font-size:.95rem;color:var(--teal);font-weight:600}
+  .v-front .pron{font-size:.78rem;color:var(--muted);font-style:italic}
+  .v-front .flip-hint{
+    position:absolute;bottom:12px;font-size:.68rem;letter-spacing:.08em;
+    text-transform:uppercase;color:#cbd5e1;font-weight:700;
+  }
+  .v-back{
+    background:linear-gradient(150deg,#1e1b4b,#312e81);color:#e0e7ff;
+    transform:rotateY(180deg);justify-content:center;gap:9px;
+  }
+  .v-back .lbl{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;font-weight:700}
+  .v-back .def{font-size:.86rem;line-height:1.5}
+  .v-back .ex{font-size:.82rem;font-style:italic;color:#c7d2fe;border-left:2px solid #6366f1;padding-left:10px}
+  .v-back .syn{font-size:.76rem;color:#99f6e4}
+
+  /* ---------- DISCOVERY ---------- */
+  .discovery{
+    background:var(--amber-light);border:1px dashed #fcd34d;border-radius:12px;
+    padding:18px 20px;margin-top:18px;
+  }
+  .discovery h4{font-size:.95rem;font-weight:800;color:#92400e;margin-bottom:10px}
+  .discovery ol{margin-left:20px;font-size:.9rem}
+  .discovery li{margin-bottom:7px}
+  .discovery li b{color:#b45309}
+
+  /* ---------- INTERACTIVE INPUTS ---------- */
+  .input-row{
+    display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed #e2e8f0;
+    flex-wrap:wrap;
+  }
+  .input-row:last-child{border-bottom:none}
+  .input-row .idx{
+    flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--indigo-light);
+    color:var(--indigo);font-weight:800;font-size:.78rem;display:grid;place-items:center;
+  }
+  .input-row .wrong{flex:1 1 240px;font-size:.9rem;color:#991b1b;text-decoration:line-through;text-decoration-color:#fca5a5}
+  .input-row input{
+    flex:1 1 260px;padding:9px 13px;border:1.5px solid var(--border);border-radius:9px;
+    font-size:.9rem;font-family:inherit;transition:.2s;background:#fff;
+  }
+  .input-row input:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 3px rgba(67,56,202,.12)}
+  .input-row input.ok{border-color:#10b981;background:#ecfdf5}
+  .input-row input.no{border-color:#ef4444;background:#fef2f2}
+  .verdict{flex:0 0 auto;font-size:1.1rem;width:22px;text-align:center}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;
+    border:none;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;transition:.2s;
+  }
+  .btn-primary{background:var(--indigo);color:#fff}
+  .btn-primary:hover{background:#3730a3;transform:translateY(-1px)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:#0f766e;transform:translateY(-1px)}
+  .btn-ghost{background:var(--indigo-light);color:var(--indigo)}
+  .btn-ghost:hover{background:#e0e7ff}
+  .btn-amber{background:var(--amber);color:#fff}
+  .btn-amber:hover{background:#d97706}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+  .answer-box{
+    background:var(--teal-light);border:1px solid #99f6e4;border-left:4px solid var(--teal);
+    border-radius:10px;padding:15px 18px;margin-top:14px;font-size:.9rem;display:none;
+  }
+  .answer-box.show{display:block;animation:slideIn .3s ease}
+  .answer-box b{color:#0f766e}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- READING ---------- */
+  .passage{
+    background:linear-gradient(180deg,#ffffff,#fbfcff);border:1px solid var(--border);
+    border-radius:var(--radius);padding:30px;font-size:1rem;line-height:1.85;color:#334155;
+  }
+  .passage p{margin-bottom:16px}
+  .passage p:last-child{margin-bottom:0}
+  .passage .hl{background:#eef2ff;padding:1px 5px;border-radius:5px;color:var(--indigo);font-weight:700}
+  .word-count{
+    text-align:right;font-size:.76rem;color:var(--muted);margin-top:10px;
+    letter-spacing:.05em;text-transform:uppercase;font-weight:700;
+  }
+  .q-item{margin-bottom:22px}
+  .q-item:last-child{margin-bottom:0}
+  .q-text{font-weight:600;font-size:.94rem;margin-bottom:9px;display:flex;gap:10px}
+  .q-text .qnum{
+    flex:0 0 auto;width:24px;height:24px;border-radius:7px;background:var(--pink-light);
+    color:var(--pink);font-weight:800;font-size:.76rem;display:grid;place-items:center;
+  }
+  textarea{
+    width:100%;min-height:88px;padding:12px 14px;border:1.5px solid var(--border);
+    border-radius:10px;font-family:inherit;font-size:.9rem;resize:vertical;transition:.2s;
+  }
+  textarea:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 3px rgba(67,56,202,.12)}
+
+  /* ---------- SPEAKING HUB ---------- */
+  .random-box{
+    background:linear-gradient(135deg,#312e81,#0f766e);border-radius:var(--radius);
+    padding:28px;color:#fff;text-align:center;margin-bottom:24px;position:relative;overflow:hidden;
+  }
+  .random-box::before{
+    content:"🗣️";position:absolute;right:-10px;bottom:-24px;font-size:8rem;opacity:.09;
+  }
+  .random-box .rlabel{
+    font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;
+    font-weight:700;margin-bottom:12px;position:relative;
+  }
+  .random-q{
+    font-size:clamp(1rem,2.6vw,1.4rem);font-weight:700;line-height:1.45;
+    min-height:62px;display:flex;align-items:center;justify-content:center;
+    position:relative;padding:0 6px;
+  }
+  .random-starter{
+    margin-top:14px;font-size:.88rem;color:#a5f3fc;font-style:italic;position:relative;min-height:22px;
+  }
+  .random-area{
+    display:inline-block;margin-top:14px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.3);padding:4px 13px;border-radius:999px;
+    font-size:.72rem;font-weight:700;letter-spacing:.05em;position:relative;
+  }
+
+  .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .filter-btn{
+    padding:7px 14px;border-radius:999px;border:1.5px solid var(--border);background:#fff;
+    font-family:inherit;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;transition:.2s;
+  }
+  .filter-btn:hover{border-color:var(--indigo);color:var(--indigo)}
+  .filter-btn.active{background:var(--indigo);border-color:var(--indigo);color:#fff}
+
+  .area-card{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+    margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);transition:.2s;
+  }
+  .area-card:hover{box-shadow:var(--shadow-lg)}
+  .area-head{
+    display:flex;align-items:center;gap:14px;padding:17px 20px;cursor:pointer;
+    user-select:none;transition:.2s;
+  }
+  .area-head:hover{background:#fafbff}
+  .area-icon{
+    flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    font-size:1.25rem;background:var(--indigo-light);
+  }
+  .area-meta{flex:1;min-width:0}
+  .area-meta h4{font-size:.98rem;font-weight:800;line-height:1.3}
+  .area-meta .words{font-size:.76rem;color:var(--teal);font-weight:600;margin-top:2px}
+  .area-count{
+    flex:0 0 auto;font-size:.72rem;font-weight:800;color:var(--indigo);
+    background:var(--indigo-light);padding:4px 11px;border-radius:999px;
+  }
+  .chev{flex:0 0 auto;color:#94a3b8;transition:transform .3s;font-size:.85rem}
+  .area-card.open .chev{transform:rotate(180deg)}
+  .area-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .area-card.open .area-body{max-height:4000px}
+  .area-body-inner{padding:4px 20px 20px;border-top:1px solid #f1f5f9}
+  .q-row{
+    display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed #eef2f7;
+    align-items:flex-start;
+  }
+  .q-row:last-child{border-bottom:none}
+  .q-row .qn{
+    flex:0 0 auto;width:28px;height:28px;border-radius:9px;background:#f1f5f9;
+    color:#475569;font-weight:800;font-size:.74rem;display:grid;place-items:center;margin-top:2px;
+  }
+  .q-row .qc{flex:1;min-width:0}
+  .q-row .qq{font-size:.92rem;font-weight:600;line-height:1.5}
+  .q-row .qq b{color:var(--indigo)}
+  .q-row .qs{font-size:.8rem;color:var(--muted);font-style:italic;margin-top:4px}
+  .q-row .qs::before{content:"→ ";color:var(--teal);font-style:normal;font-weight:700}
+  .speak-btn{
+    flex:0 0 auto;width:32px;height:32px;border-radius:9px;border:1px solid var(--border);
+    background:#fff;cursor:pointer;font-size:.9rem;transition:.2s;display:grid;place-items:center;
+  }
+  .speak-btn:hover{background:var(--indigo-light);border-color:var(--indigo)}
+
+  /* ---------- TRACKER ---------- */
+  .progress-wrap{margin-bottom:18px}
+  .progress-label{
+    display:flex;justify-content:space-between;font-size:.8rem;font-weight:700;
+    color:var(--muted);margin-bottom:8px;
+  }
+  .progress-bar{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+  .progress-fill{
+    height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s ease;
+  }
+  .tracker-tbl{font-size:.85rem;min-width:520px}
+  .tracker-tbl td{vertical-align:middle}
+  .tracker-tbl input[type=checkbox]{
+    width:19px;height:19px;accent-color:var(--indigo);cursor:pointer;
+  }
+  .tracker-tbl td.cell{text-align:center;width:110px}
+
+  /* ---------- WRITING ---------- */
+  .required-words{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+  .rw{
+    padding:6px 14px;border-radius:999px;background:#f1f5f9;color:var(--muted);
+    font-size:.8rem;font-weight:700;border:1.5px solid transparent;transition:.25s;
+  }
+  .rw.found{background:#ecfdf5;color:#047857;border-color:#6ee7b7}
+  .rw.found::before{content:"✓ "}
+  .word-counter{
+    display:flex;justify-content:space-between;align-items:center;margin-top:10px;
+    font-size:.82rem;font-weight:700;color:var(--muted);
+  }
+  .word-counter .wc-num{font-size:1.05rem;color:var(--indigo)}
+  .word-counter .wc-num.good{color:#059669}
+  .word-counter .wc-num.low{color:#d97706}
+
+  /* ---------- SCENARIOS ---------- */
+  .scenario{
+    border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;
+    background:#fff;transition:.2s;
+  }
+  .scenario:hover{border-color:#c7d2fe}
+  .scenario .s-tag{
+    display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 11px;border-radius:999px;margin-bottom:11px;
+  }
+  .tag-speak{background:var(--indigo-light);color:var(--indigo)}
+  .tag-vocab{background:var(--teal-light);color:#0f766e}
+  .tag-mix{background:var(--pink-light);color:var(--pink)}
+  .scenario p{font-size:.93rem}
+  .model-answer{
+    background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);
+    border-radius:10px;padding:15px 18px;margin-top:14px;font-size:.9rem;display:none;
+    font-style:italic;color:#78350f;
+  }
+  .model-answer.show{display:block;animation:slideIn .3s ease}
+  .model-answer .ma-label{
+    display:block;font-style:normal;font-weight:800;font-size:.7rem;letter-spacing:.08em;
+    text-transform:uppercase;color:#b45309;margin-bottom:7px;
+  }
+
+  /* ---------- RUBRIC ---------- */
+  .rubric td:first-child{font-weight:700;color:#334155}
+  .rubric .p3{background:#f0fdf4}
+  .rubric .p2{background:#fffbeb}
+  .rubric .p1{background:#fef2f2}
+
+  /* ---------- MISC ---------- */
+  .tip{
+    background:var(--indigo-light);border-left:4px solid var(--indigo);border-radius:10px;
+    padding:15px 18px;font-size:.88rem;margin-top:16px;color:#3730a3;
+  }
+  .tip b{color:#312e81}
+  .pill-note{
+    display:inline-block;background:var(--amber-light);color:#92400e;font-size:.72rem;
+    font-weight:800;padding:3px 11px;border-radius:999px;margin-left:8px;letter-spacing:.04em;
+  }
+  footer{
+    background:#1e293b;color:#94a3b8;text-align:center;padding:36px 20px;font-size:.85rem;
+  }
+  footer b{color:#e2e8f0}
+
+  @media(max-width:640px){
+    main{padding:26px 14px 70px}
+    .card{padding:18px}
+    .passage{padding:20px;font-size:.94rem}
+    .v-card{height:265px}
+    .sec-head{gap:12px}
+    .sec-num{width:40px;height:40px;font-size:1rem;border-radius:12px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge">MEB 10. Sınıf · Theme 1</div>
+    <h1>School Life</h1>
+    <p>Speaking &amp; Vocabulary Integration odaklı interaktif ders modülü — A2 seviyesinden B1+'a taşıyan, günlük hayatın tamamını kapsayan 100 doğrudan konuşma sorusu.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>12</b><span>Hedef Kelime</span></div>
+      <div class="hero-stat"><b>100</b><span>Konuşma Sorusu</span></div>
+      <div class="hero-stat"><b>10</b><span>Hayat Alanı</span></div>
+      <div class="hero-stat"><b>5</b><span>Ders Saati</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav class="sticky">
+  <div class="nav-inner">
+    <a href="#vocab">1 · Kelime Bankası</a>
+    <a href="#grammar">2 · Grammar Lab</a>
+    <a href="#reading">3 · Okuma</a>
+    <a href="#speaking">4 · Speaking Hub</a>
+    <a href="#writing">5 · Writing</a>
+    <a href="#assessment">6 · Değerlendirme</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================= 1. VOCABULARY ================= -->
+<section id="vocab">
+  <div class="sec-head">
+    <div class="sec-num">1</div>
+    <div>
+      <h2>Hedef Kelime &amp; İfade Bankası</h2>
+      <p>Kartlara tıkla → tanım, Türkçe karşılık, örnek cümle ve eş/zıt anlamı gör.</p>
+    </div>
+  </div>
+
+  <div class="vocab-grid" id="vocabGrid"></div>
+
+  <div class="card" style="margin-top:24px">
+    <h3><span class="dot"></span>Collocation Box — Konuşmada Doğal Kullanım</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Fiil + İsim Kalıbı</th><th>Anlam</th><th>Konuşma Örneği</th></tr></thead>
+        <tbody>
+          <tr><td><b>meet</b> a deadline</td><td>Son teslim tarihine yetişmek</td><td><i>"I always try to <b>meet</b> the <b>deadline</b> early."</i></td></tr>
+          <tr><td><b>join</b> a club</td><td>Kulübe katılmak</td><td><i>"I want to <b>join</b> the music <b>club</b>."</i></td></tr>
+          <tr><td><b>follow</b> a routine</td><td>Rutini takip etmek</td><td><i>"I <b>follow</b> the same <b>routine</b> every day."</i></td></tr>
+          <tr><td><b>take part in</b> a discussion</td><td>Tartışmaya katılmak</td><td><i>"She <b>takes part in</b> every discussion."</i></td></tr>
+          <tr><td><b>have</b> a preference for</td><td>Tercihi olmak</td><td><i>"I <b>have</b> a <b>preference</b> for online lessons."</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot" style="background:var(--amber)"></span>Isınma Oyunu: 3-2-1 SPEAK <span class="pill-note">Her ders başı · 5 dk</span></h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Adım</th><th>Görev</th><th>Süre</th></tr></thead>
+        <tbody>
+          <tr><td><b>3</b></td><td>Partnerine 3 hedef kelime kullanarak bir cümle söyle.</td><td>1 dk</td></tr>
+          <tr><td><b>2</b></td><td>Partnerin 2 kelimeyle ilgili sana bir soru sorsun.</td><td>1 dk</td></tr>
+          <tr><td><b>1</b></td><td>İkiniz 1 kelime seçip birlikte mini diyalog kurun.</td><td>3 dk</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip">
+      <b>Örnek Diyalog:</b><br>
+      <b>A:</b> <i>"I <b>participate in</b> the chess club every Wednesday. What about you?"</i><br>
+      <b>B:</b> <i>"I don't <b>attend</b> any club now, but I'm <b>interested in</b> drama. My <b>preference</b> is acting."</i>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. GRAMMAR ================= -->
+<section id="grammar">
+  <div class="sec-head">
+    <div class="sec-num">2</div>
+    <div>
+      <h2>Keşfedici Dilbilgisi Laboratuvarı</h2>
+      <p>Kural ezberlemek yok — tabloyu oku, partnerinle keşfet, sonra konuş.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>Keşif Tablosu — "Rutinini Anlat, Kuralı Bul"</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Kişi</th><th>Rutin</th><th>Sıklık Zarfı</th><th>Beğeni</th><th>Tercih</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>I</b></td><td>I <b>get up</b> at 7:00.</td><td>I <b>always</b> revise.</td><td>I <b>love</b> PE.</td><td>I <b>prefer</b> coding to art.</td></tr>
+          <tr><td><b>You</b></td><td>You <b>study</b> after school.</td><td>You <b>usually</b> finish early.</td><td>Do you <b>like</b> group work?</td><td>Do you <b>prefer</b> morning lessons?</td></tr>
+          <tr><td><b>He / She</b></td><td>She <b>attends</b> chess club.</td><td>She <b>often</b> stays late.</td><td>She <b>enjoys</b> solving problems.</td><td>He <b>prefers</b> science to maths.</td></tr>
+          <tr><td><b>We / They</b></td><td>We <b>participate in</b> fairs.</td><td>We <b>sometimes</b> go on trips.</td><td>They <b>prefer</b> online quizzes.</td><td>We <b>prefer</b> projects to exams.</td></tr>
+          <tr><td><b>Negative</b></td><td>He <b>doesn't like</b> early lessons.</td><td>She <b>never</b> forgets deadlines.</td><td>I <b>don't enjoy</b> dictation.</td><td>They <b>don't prefer</b> homework.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="discovery">
+      <h4>🔍 Keşif Soruları — Partnerinle Sor &amp; Cevapla</h4>
+      <ol>
+        <li>He / She / It öznelerinde fiile ne ekleniyor? <b>(attend → ? , study → ?)</b></li>
+        <li>Frequency adverb cümlede nerede duruyor? <b>"Be" fiiliyle kullanılınca yer değişiyor mu?</b></li>
+        <li>Beğeni fiillerinden sonra <b>"-ing" mi "to + fiil" mi</b> geliyor?</li>
+        <li>Tercih karşılaştırırken hangi yapı kullanılıyor? <b>(prefer X ___ Y)</b></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot" style="background:var(--pink)"></span>Formül Özeti + Konuşma Kalıpları</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Yapı</th><th>Formül</th><th>Konuşma Kalıbı</th></tr></thead>
+        <tbody>
+          <tr><td><b>Simple Present (+)</b></td><td>Özne + V1 <span class="hl">(+s/es)</span></td><td><i>"Every morning, I…" / "She usually…"</i></td></tr>
+          <tr><td><b>Simple Present (–)</b></td><td>Özne + don't / doesn't + V1</td><td><i>"I don't really like…" / "He doesn't enjoy…"</i></td></tr>
+          <tr><td><b>Simple Present (?)</b></td><td>Do / Does + özne + V1?</td><td><i>"Do you ever…?" / "Does she usually…?"</i></td></tr>
+          <tr><td><b>Frequency Adverbs</b></td><td>Özne + always/usually/often/sometimes/never + V1</td><td><i>"I always / never…"</i></td></tr>
+          <tr><td><b>Frequency + Be</b></td><td>Özne + be + frequency adverb</td><td><i>"I'm always…" / "She's never…"</i></td></tr>
+          <tr><td><b>Likes</b></td><td>like / love / enjoy + <span class="hl-teal">V-ing</span></td><td><i>"I really enjoy…" / "I'm into…"</i></td></tr>
+          <tr><td><b>Dislikes</b></td><td>don't like / hate / can't stand + <span class="hl-teal">V-ing</span></td><td><i>"I can't stand…" / "I'm not a fan of…"</i></td></tr>
+          <tr><td><b>Preferences</b></td><td>prefer + V-ing / to-V … <span class="hl-pink">to</span> …</td><td><i>"I prefer X to Y because…"</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot" style="background:var(--amber)"></span>Hataları Düzelt + Kendine Uyarla <span class="pill-note">5 Cümle</span></h3>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px">Cümleleri düzeltip kutuya yaz, <b>Kontrol Et</b>'e bas. Sonra her düzeltilmiş cümleyi kendi hayatına uyarlayarak yüksek sesle söyle.</p>
+    <div id="errorDrill"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="checkErrors()">✓ Kontrol Et</button>
+      <button class="btn btn-ghost" onclick="showErrorAnswers()">👁️ Cevapları Göster</button>
+    </div>
+    <div class="answer-box" id="errorAnswers">
+      <b>✅ Doğru Cevaplar:</b><br>
+      1. My brother always <b>forgets</b> his assignment deadline. <i>(3. tekil -s)</i><br>
+      2. <b>Does</b> she participate in the drama club? <i>(yardımcı fiil)</i><br>
+      3. I am usually interested in <b>playing</b> basketball. <i>(preposition + V-ing)</i><br>
+      4. He <b>prefers</b> science to literature. <i>(3. tekil -s)</i><br>
+      5. We <b>never</b> attend morning meetings. <i>(çift olumsuzluk düzeltildi)</i>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. READING ================= -->
+<section id="reading">
+  <div class="sec-head">
+    <div class="sec-num">3</div>
+    <div>
+      <h2>Bağlamsal Okuma Parçası</h2>
+      <p>B1 seviyesi · Hedef kelimeler ve dilbilgisi yapıları doğal bağlamda.</p>
+    </div>
+  </div>
+
+  <div class="passage">
+    <h3 style="font-size:1.25rem;font-weight:800;color:#4338ca;margin-bottom:18px">A Day in a Future-Tech High School</h3>
+    <p>Nova High is not an ordinary school. Its <span class="hl">curriculum</span> combines traditional subjects with technology, and every student has a tablet instead of a heavy backpack. The school day starts at 9:00 a.m., so my morning <span class="hl">routine</span> is quite relaxed. I usually wake up at 7:30, have breakfast, and review my notes before I leave home.</p>
+    <p>According to our <span class="hl">timetable</span>, Mondays are the busiest. We have maths, coding, and a double science lesson. Our science teacher gives us a new <span class="hl">assignment</span> every two weeks, and the <span class="hl">deadline</span> is always on Friday. I <span class="hl">participate in</span> class discussions actively because I <span class="hl">am interested in</span> robotics.</p>
+    <p>After lunch, students can choose <span class="hl">extracurricular activities</span>. I <span class="hl">attend</span> the Robotics <span class="hl">Club</span> on Tuesdays and Thursdays. My friend Elif prefers the Debate Club, but my <span class="hl">preference</span> is always technology. She doesn't enjoy building machines, and I can't stand speaking in front of large audiences.</p>
+    <p>I <span class="hl">look forward to</span> Fridays most because we have a "Genius Hour" — a lesson where we work on our own projects. In short, school life at Nova High is challenging, but it is never boring.</p>
+    <div class="word-count">~190 kelime · B1</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h3><span class="dot" style="background:var(--pink)"></span>Kavrama Soruları <span class="pill-note">MEB Açık Uçlu Formatı</span></h3>
+
+    <div class="q-item">
+      <div class="q-text"><span class="qnum">1</span><span>Why is the student's morning routine described as "relaxed"? Explain with a detail from the text.</span></div>
+      <textarea placeholder="Write your answer here…"></textarea>
+      <button class="btn btn-ghost" style="margin-top:8px" onclick="toggleAnswer(this)">Örnek Cevabı Göster</button>
+      <div class="answer-box"><b>Model:</b> Because the school day starts at 9:00 a.m., so the student can wake up at 7:30 and have a calm breakfast without rushing.</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text"><span class="qnum">2</span><span>How does the writer's preference differ from Elif's? Give reasons from the passage.</span></div>
+      <textarea placeholder="Write your answer here…"></textarea>
+      <button class="btn btn-ghost" style="margin-top:8px" onclick="toggleAnswer(this)">Örnek Cevabı Göster</button>
+      <div class="answer-box"><b>Model:</b> The writer prefers technology and attends the Robotics Club, while Elif prefers the Debate Club. The writer can't stand speaking in front of audiences, and Elif doesn't enjoy building machines.</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text"><span class="qnum">3</span><span>What does the writer look forward to most, and why? Support your answer with evidence from the text.</span></div>
+      <textarea placeholder="Write your answer here…"></textarea>
+      <button class="btn btn-ghost" style="margin-top:8px" onclick="toggleAnswer(this)">Örnek Cevabı Göster</button>
+      <div class="answer-box"><b>Model:</b> The writer looks forward to Fridays because of the "Genius Hour" lesson where students work on their own projects, which shows their interest in independent learning.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot" style="background:var(--teal)"></span>Okuma Sonrası Konuşma Görevleri</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Görev</th><th>Ne Yapacaksın?</th><th>Süre</th></tr></thead>
+        <tbody>
+          <tr><td><b>Pair Talk</b></td><td>"Would you like to study at Nova High? Why?" · "Robotics or Debate Club? Why?"</td><td>3 dk</td></tr>
+          <tr><td><b>Vocabulary Recycling</b></td><td>En az 5 hedef kelimeyle Nova High'ı kendi okulunla karşılaştır.</td><td>2 dk</td></tr>
+          <tr><td><b>Role Play</b></td><td>A = Nova High öğrencisi (tanıtıyor) · B = yeni transfer (soruyor)</td><td>4 dk</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. SPEAKING HUB ================= -->
+<section id="speaking">
+  <div class="sec-head">
+    <div class="sec-num">4</div>
+    <div>
+      <h2>Speaking Hub — Günlük Hayatın Tamamı</h2>
+      <p>100 doğrudan soru · 10 alan · Her soru kişisel cevap gerektirir.</p>
+    </div>
+  </div>
+
+  <!-- Random question -->
+  <div class="random-box">
+    <div class="rlabel">🎲 Rastgele Soru Üretici</div>
+    <div class="random-q" id="randomQ">Butona bas ve konuşmaya başla!</div>
+    <div class="random-starter" id="randomStarter"></div>
+    <div class="random-area" id="randomArea" style="display:none"></div>
+    <div style="margin-top:20px;position:relative">
+      <button class="btn btn-amber" onclick="rollQuestion()">🎲 Soru Getir</button>
+    </div>
+  </div>
+
+  <!-- Answer expansion technique -->
+  <div class="card">
+    <h3><span class="dot" style="background:var(--amber)"></span>Cevap Genişletme Tekniği <span class="pill-note">B1+ Zorunlu</span></h3>
+    <p style="font-size:.9rem;margin-bottom:14px">Her cevap <b>4 katmanlı</b> olmalı: <b>CEVAP + SEBEP + ÖRNEK + DUYGU</b></p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Seviye</th><th>Cevap</th></tr></thead>
+        <tbody>
+          <tr><td><b>A2</b> ❌</td><td><i>"Yes, I do."</i> <span style="color:#dc2626">(çok kısa)</span></td></tr>
+          <tr><td><b>B1+</b> ✅</td><td><i>"Yes, I usually <b>participate in</b> discussions <b>because</b> I learn better when I speak. <b>For example</b>, in English lessons I always ask questions. I feel more confident when I share my ideas."</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip">
+      <b>Follow-up Soru Kökleri:</b> <i>"Why do you think so?" · "How often do you do that?" · "Can you give me an example?" · "How do you feel about that?" · "What about you?"</i>
+    </div>
+  </div>
+
+  <!-- Filter + Areas -->
+  <div class="card">
+    <h3><span class="dot"></span>Soru Bankası — 10 Alan</h3>
+    <div class="filter-bar" id="filterBar"></div>
+    <div id="areaList"></div>
+  </div>
+
+  <!-- Task formats -->
+  <div class="card">
+    <h3><span class="dot" style="background:var(--pink)"></span>8 Speaking Görev Formatı</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Format</th><th>Nasıl Uygulanır</th><th>Süre</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>Speed Chat</b></td><td>Sıralar karşılıklı; her 2 dakikada partner değişir, yeni soru alınır</td><td>10 dk</td></tr>
+          <tr><td>2</td><td><b>Hot Seat</b></td><td>Bir öğrenci tahtaya arkası dönük; sınıf soru sorar, o cevaplar</td><td>5 dk</td></tr>
+          <tr><td>3</td><td><b>Pair Interview + Report</b></td><td>8 soru sorulur, not alınır, sınıfa rapor edilir</td><td>8 dk</td></tr>
+          <tr><td>4</td><td><b>Role Play Cards</b></td><td>Kulüp tanıtımı, yeni öğrenci, öğretmen-öğrenci</td><td>6 dk</td></tr>
+          <tr><td>5</td><td><b>Class Survey</b></td><td>3 arkadaşa soru sorulur, veri toplanır, grafik + rapor</td><td>7 dk</td></tr>
+          <tr><td>6</td><td><b>60-Second Talk</b></td><td>Tek konu, 60 saniye, durmadan konuş</td><td>5 dk</td></tr>
+          <tr><td>7</td><td><b>Agree / Disagree Line</b></td><td><i>"Exams are necessary."</i> — taraf seç, gerekçe sun</td><td>6 dk</td></tr>
+          <tr><td>8</td><td><b>Scenario Prompt</b></td><td>Fotoğraf veya senaryo verilir, betimleme + yorum</td><td>5 dk</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:26px"><span class="dot" style="background:var(--teal)"></span>Rol Kartı Örneği — "Club Fair"</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Rol</th><th>Görev</th><th>Zorunlu Kelimeler</th></tr></thead>
+        <tbody>
+          <tr><td><b>A — Kulüp Üyesi</b></td><td>Kulübünü tanıt: gün, aktiviteler, faydalar</td><td>attend, participate in, look forward to, interested in</td></tr>
+          <tr><td><b>B — Yeni Öğrenci</b></td><td>3 soru sor, tercihini söyle</td><td>preference, club, timetable, routine</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip">
+      <b>Model Diyalog:</b><br>
+      <b>A:</b> <i>"Hi! Are you interested in joining a club this term?"</i><br>
+      <b>B:</b> <i>"Yes! But my timetable is really busy. What days do you meet?"</i><br>
+      <b>A:</b> <i>"We attend every Tuesday. You'll look forward to it — we do fun projects!"</i>
+    </div>
+
+    <h3 style="margin-top:26px"><span class="dot" style="background:var(--indigo)"></span>Class Survey Rapor Kalıbı</h3>
+    <div class="tip" style="background:var(--teal-light);border-left-color:var(--teal);color:#0f766e">
+      <i>"I asked three classmates. Two of them <b>attend</b> the music club, and one is <b>interested in</b> robotics. Their <b>preference</b> is afternoon lessons because they <b>usually</b> feel sleepy in the morning. Most of them <b>participate in</b> discussions <b>sometimes</b>."</i>
+    </div>
+  </div>
+
+  <!-- Tracker -->
+  <div class="card">
+    <h3><span class="dot" style="background:var(--pink)"></span>Vocabulary Integration Tracker</h3>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px">Her konuşma turundan sonra kendi kullanımını işaretle. <b>Kural:</b> Her turda en az 4 hedef kelime kullanılmalı.</p>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Kullanılan Kelimeler</span><span id="progText">0 / 12</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tracker-tbl">
+        <thead>
+          <tr><th>Hedef Kelime</th><th class="cell">Kullandım ✅</th><th class="cell">Doğru Bağlam ✅</th><th class="cell">Tekrar Gerek ⚠️</th></tr>
+        </thead>
+        <tbody id="trackerBody"></tbody>
+      </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="resetTracker()">↺ Sıfırla</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. WRITING ================= -->
+<section id="writing">
+  <div class="sec-head">
+    <div class="sec-num">5</div>
+    <div>
+      <h2>Writing — Speaking'e Köprü</h2>
+      <p>"My Ideal School Routine" · 80–100 kelime</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>Adım Adım Rehber</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Bölüm</th><th>Yönlendirme</th><th>Önce Söyle, Sonra Yaz</th></tr></thead>
+        <tbody>
+          <tr><td><b>Giriş</b></td><td>Okul gününün genel tanımı (kaçta başlar/biter?)</td><td><i>"In my ideal school, lessons would start at… because…"</i></td></tr>
+          <tr><td><b>Gelişme</b></td><td>Dersler, kulüpler, rutin</td><td><i>"I would participate in… and I would prefer…"</i></td></tr>
+          <tr><td><b>Sonuç</b></td><td>Neden bu rutin? Genel değerlendirme</td><td><i>"I would look forward to… because…"</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:24px"><span class="dot" style="background:var(--amber)"></span>Zorunlu 5 Bağlaç / Kelime</h3>
+    <div class="required-words" id="requiredWords">
+      <span class="rw" data-w="because">because</span>
+      <span class="rw" data-w="usually">usually</span>
+      <span class="rw" data-w="participate in">participate in</span>
+      <span class="rw" data-w="prefer">prefer</span>
+      <span class="rw" data-w="look forward to">look forward to</span>
+    </div>
+
+    <h3 style="margin-top:24px"><span class="dot" style="background:var(--teal)"></span>Paragrafını Yaz</h3>
+    <textarea id="writingArea" style="min-height:180px" placeholder="In my ideal school, lessons would start at…"></textarea>
+    <div class="word-counter">
+      <span>Kelime sayısı: <span class="wc-num" id="wcNum">0</span> <span style="font-weight:600;color:#94a3b8">/ hedef 80–100</span></span>
+      <span id="wcMsg" style="font-weight:700"></span>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-teal" onclick="toggleModel()">📄 Örnek Paragrafı Göster</button>
+    </div>
+    <div class="answer-box" id="modelParagraph">
+      <b>Model Paragraph:</b><br>
+      In my ideal school, lessons would start at 10 a.m. <b>because</b> I am not a morning person. I would <b>usually</b> study four subjects a day, including art and coding. I would <b>participate in</b> the drama club and <b>prefer</b> creative lessons to exams. I would <b>look forward to</b> every Friday because we would have a project day. In short, my ideal routine would be balanced and fun.
+    </div>
+
+    <div class="tip">
+      <b>💡 İpucu:</b> Yazmadan önce paragrafını partnerine <b>yüksek sesle anlat</b>. Ondan 1 öneri al. Sonra yaz.
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. ASSESSMENT ================= -->
+<section id="assessment">
+  <div class="sec-head">
+    <div class="sec-num">6</div>
+    <div>
+      <h2>Mini Değerlendirme</h2>
+      <p>Açık uçlu senaryolar · Speaking + Vocabulary entegre</p>
+    </div>
+  </div>
+
+  <div class="scenario">
+    <span class="s-tag tag-speak">Speaking Focus</span>
+    <p><b>Senaryo 1 — Club Advice:</b> Arkadaşın Robotics mi Book Club mı seçemiyor. Çiftler halinde en az <b>2 hedef kelime</b> kullanarak tavsiye verin ve gerekçenizi açıklayın.</p>
+    <button class="btn btn-ghost" style="margin-top:12px" onclick="toggleModel2(this)">Örnek Tam Puanlık Cevap</button>
+    <div class="model-answer">
+      <span class="ma-label">Model Answer</span>
+      "You should think about what you are <b>interested in</b>. If you enjoy building machines, you should <b>attend</b> the Robotics Club, but if you <b>prefer</b> reading, your <b>preference</b> should be the Book Club. You can <b>participate in</b> both if your <b>timetable</b> allows it!"
+    </div>
+  </div>
+
+  <div class="scenario">
+    <span class="s-tag tag-vocab">Vocabulary Focus</span>
+    <p><b>Senaryo 2 — Routine Rescue:</b> Kuzenin <b>deadline</b>'ları unutuyor ve hiç tekrar yapmıyor. En az <b>3 hedef kelimeyle</b> bir <b>routine</b> önerisi yaz.</p>
+    <button class="btn btn-ghost" style="margin-top:12px" onclick="toggleModel2(this)">Örnek Tam Puanlık Cevap</button>
+    <div class="model-answer">
+      <span class="ma-label">Model Answer</span>
+      "You should create a weekly <b>routine</b>. Write every <b>assignment</b> in a notebook and check the <b>deadline</b> every evening. You should revise for 30 minutes after dinner. If you never forget your tasks, you will <b>look forward to</b> school more."
+    </div>
+  </div>
+
+  <div class="scenario">
+    <span class="s-tag tag-mix">Integrated Focus</span>
+    <p><b>Senaryo 3 — Ideal Timetable:</b> İdeal <b>timetable</b>'ını anlat, <b>preference</b>'larınla ilişkilendir. En az <b>3 hedef kelime</b> kullan, sonra partnerine 60 saniyede anlat.</p>
+    <button class="btn btn-ghost" style="margin-top:12px" onclick="toggleModel2(this)">Örnek Tam Puanlık Cevap</button>
+    <div class="model-answer">
+      <span class="ma-label">Model Answer</span>
+      "In my ideal <b>timetable</b>, lessons start at 10 a.m. I am really <b>interested in</b> music, so I would <b>attend</b> a music <b>club</b> twice a week. My <b>preference</b> is having long breaks between lessons. I <b>usually look forward to</b> Fridays because we would have no <b>assignments</b> on weekends."
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot" style="background:var(--pink)"></span>Değerlendirme Rubriği</h3>
+    <div class="tbl-wrap">
+      <table class="rubric">
+        <thead><tr><th>Kriter</th><th class="p3">3 Puan (B1+)</th><th class="p2">2 Puan (A2+/B1)</th><th class="p1">1 Puan (A2)</th></tr></thead>
+        <tbody>
+          <tr><td>Hedef kelime kullanımı</td><td class="p3">4+ kelime doğal ve bağlamsal</td><td class="p2">2–3 kelime doğru</td><td class="p1">0–1 kelime / hatalı</td></tr>
+          <tr><td>Cevap genişletme</td><td class="p3">Cevap + sebep + örnek + duygu</td><td class="p2">Cevap + sebep</td><td class="p1">Sadece kısa cevap</td></tr>
+          <tr><td>Akıcılık</td><td class="p3">Duraksamadan, doğal bağlaçlarla</td><td class="p2">Ara ara duraksama</td><td class="p1">Sık duraksama</td></tr>
+          <tr><td>Etkileşim</td><td class="p3">Soru sorar, konuyu genişletir</td><td class="p2">Sınırlı etkileşim</td><td class="p1">Sadece cevaplar</td></tr>
+          <tr><td>Dilbilgisi</td><td class="p3">Simple Present &amp; frequency adverbs hatasız</td><td class="p2">Küçük hatalar</td><td class="p1">Sık hatalar</td></tr>
+          <tr><td>Telaffuz</td><td class="p3">Anlaşılır, vurgu doğru</td><td class="p2">Genel anlaşılır</td><td class="p1">Anlaşılmayı zorlaştırır</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot" style="background:var(--indigo)"></span>Öğretmen İçin — 5 Ders Saati Planı</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Ders</th><th>İçerik</th></tr></thead>
+        <tbody>
+          <tr><td><b>1</b></td><td>Kelime bankası + 3-2-1 SPEAK + Collocation Box</td></tr>
+          <tr><td><b>2</b></td><td>Grammar Lab + Speaking Drill</td></tr>
+          <tr><td><b>3</b></td><td>Reading + Post-Reading Speaking (Alan 1–4 soruları)</td></tr>
+          <tr><td><b>4</b></td><td><b>Speaking Hub</b> — Alan 5–10 + Speed Chat + Role Play + Survey</td></tr>
+          <tr><td><b>5</b></td><td>Writing + Mini Değerlendirme + Akran Değerlendirmesi</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:26px"><span class="dot" style="background:var(--teal)"></span>Konuşmayı Zorunlu Kılan Teknikler</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Teknik</th><th>Uygulama</th><th>Süre</th></tr></thead>
+        <tbody>
+          <tr><td><b>3-2-1 SPEAK</b></td><td>Ders başı ısınma — kelime + konuşma</td><td>5 dk</td></tr>
+          <tr><td><b>Speed Chat</b></td><td>2 dakikada partner değişimi, yeni soru</td><td>10 dk</td></tr>
+          <tr><td><b>Vocabulary Recycling</b></td><td>Her aktivitede önceki kelimeler zorunlu</td><td>Sürekli</td></tr>
+          <tr><td><b>Follow-up Zorunluluğu</b></td><td>Her cevaptan sonra 1 takip sorusu</td><td>Sürekli</td></tr>
+          <tr><td><b>Back-to-Board</b></td><td>Tahtaya arkası dönük öğrenci kelimeyi anlatır</td><td>3 dk</td></tr>
+          <tr><td><b>No-Turkish Rule</b></td><td>Speaking turlarında sadece İngilizce</td><td>Sürekli</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:26px"><span class="dot" style="background:var(--amber)"></span>Farklılaştırma</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Seviye</th><th>Uygulama</th></tr></thead>
+        <tbody>
+          <tr><td><b>A2</b></td><td>Alan 1–4 soruları (somut, rutin), basit sentence starter'lar</td></tr>
+          <tr><td><b>B1</b></td><td>Alan 5–8 soruları + follow-up zorunluluğu</td></tr>
+          <tr><td><b>B1+</b></td><td>Alan 9–10 soruları + 60-second talk + akran değerlendirmesi</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>MEB 10. Sınıf İngilizce · Theme 1: School Life</b><br>
+  Speaking &amp; Vocabulary Integration Odaklı Modül · A2 → B1+ · İletişimsel Yaklaşım &amp; Görev Temelli Öğrenme
+</footer>
+
+<script>
+/* ============================================================
+   1. VOCABULARY DATA
+   ============================================================ */
+const vocab = [
+  {w:"Curriculum", tr:"Müfredat, öğretim programı", pron:"/kəˈrɪkjələm/", def:"The subjects and content taught in a school.", ex:"Our school's curriculum includes coding and robotics this year.", syn:"Eş: syllabus"},
+  {w:"Extracurricular activity", tr:"Ders dışı etkinlik", pron:"/ˌekstrəˈrɪkjələ/", def:"An activity outside the regular school lessons.", ex:"I join at least one extracurricular activity every term.", syn:"Eş: after-school activity · Zıt: core lesson"},
+  {w:"Timetable / Schedule", tr:"Ders programı, zaman çizelgesi", pron:"/ˈtaɪmteɪbl/", def:"A plan showing when classes or events happen.", ex:"According to my timetable, I have maths before lunch.", syn:"Eş: program"},
+  {w:"Assignment", tr:"Ödev, görev", pron:"/əˈsaɪnmənt/", def:"A piece of work given by a teacher.", ex:"We have a group assignment about climate change.", syn:"Eş: task, homework"},
+  {w:"Participate in", tr:"Katılmak, iştirak etmek", pron:"/pɑːˈtɪsɪpeɪt/", def:"To take part in an activity.", ex:"I always participate in class discussions.", syn:"Eş: take part in · Zıt: withdraw from"},
+  {w:"Look forward to", tr:"Sabırsızlıkla beklemek", pron:"/lʊk ˈfɔːwəd tuː/", def:"To feel excited about something in the future.", ex:"I look forward to the science fair every spring.", syn:"Eş: anticipate · Zıt: dread"},
+  {w:"Be interested in", tr:"İlgilenmek, meraklı olmak", pron:"/ˈɪntrəstɪd/", def:"To want to know or learn more about something.", ex:"She is interested in learning Japanese.", syn:"Eş: be keen on · Zıt: be bored with"},
+  {w:"Deadline", tr:"Son teslim tarihi", pron:"/ˈdedlaɪn/", def:"The final date to finish something.", ex:"The deadline for the project is next Friday.", syn:"Eş: due date"},
+  {w:"Attend", tr:"Katılmak, devam etmek", pron:"/əˈtend/", def:"To go to a class, meeting, or event.", ex:"Students must attend at least 80% of the lessons.", syn:"Eş: go to · Zıt: skip, miss"},
+  {w:"Routine", tr:"Rutin, günlük düzen", pron:"/ruːˈtiːn/", def:"Things you do regularly in the same way.", ex:"My morning routine starts with a healthy breakfast.", syn:"Eş: habit · Zıt: chaos"},
+  {w:"Club", tr:"Kulüp", pron:"/klʌb/", def:"A group of students who share an interest.", ex:"I joined the debate club to improve my speaking.", syn:"Eş: society"},
+  {w:"Preference", tr:"Tercih", pron:"/ˈprefrəns/", def:"Liking one thing more than another.", ex:"My preference is online lessons rather than face-to-face.", syn:"Eş: choice · Zıt: dislike"}
+];
+
+const vocabGrid = document.getElementById('vocabGrid');
+vocab.forEach((v,i)=>{
+  const card = document.createElement('div');
+  card.className = 'v-card';
+  card.innerHTML = `
+    <div class="v-inner">
+      <div class="v-face v-front">
+        <span class="num">${String(i+1).padStart(2,'0')}</span>
+        <div class="word">${v.w}</div>
+        <div class="tr">${v.tr}</div>
+        <div class="pron">${v.pron}</div>
+        <span class="flip-hint">Tıkla → Çevir</span>
+      </div>
+      <div class="v-face v-back">
+        <span class="lbl">Definition</span>
+        <div class="def">${v.def}</div>
+        <span class="lbl">Example</span>
+        <div class="ex">"${v.ex}"</div>
+        <div class="syn">${v.syn}</div>
+      </div>
+    </div>`;
+  card.addEventListener('click',()=>card.classList.toggle('flipped'));
+  vocabGrid.appendChild(card);
+});
+
+/* ============================================================
+   2. ERROR DRILL
+   ============================================================ */
+const errors = [
+  {wrong:"My brother always forget his assignment deadline.", key:"forgets"},
+  {wrong:"Do she participate in the drama club?", key:"does"},
+  {wrong:"I am usually interested in play basketball.", key:"playing"},
+  {wrong:"He prefer science to literature.", key:"prefers"},
+  {wrong:"We don't never attend morning meetings.", key:"never"}
+];
+const drill = document.getElementById('errorDrill');
+errors.forEach((e,i)=>{
+  const row = document.createElement('div');
+  row.className = 'input-row';
+  row.innerHTML = `
+    <span class="idx">${i+1}</span>
+    <span class="wrong">${e.wrong}</span>
+    <input type="text" data-key="${e.key}" placeholder="Düzeltilmiş cümleyi yaz…">
+    <span class="verdict"></span>`;
+  drill.appendChild(row);
+});
+
+function normalize(s){
+  return s.toLowerCase()
+    .replace(/[’']/g,"'")
+    .replace(/[.,!?;]/g,"")
+    .replace(/\s+/g," ")
+    .trim();
+}
+function checkErrors(){
+  document.querySelectorAll('#errorDrill .input-row').forEach(row=>{
+    const inp = row.querySelector('input');
+    const key = inp.dataset.key;
+    const verdict = row.querySelector('.verdict');
+    const val = normalize(inp.value);
+    if(!val){ inp.className=''; verdict.textContent=''; return; }
+    if(val.includes(key)){
+      inp.className='ok'; verdict.textContent='✅'; verdict.style.color='#10b981';
+    } else {
+      inp.className='no'; verdict.textContent='❌'; verdict.style.color='#ef4444';
+    }
+  });
+}
+function showErrorAnswers(){
+  document.getElementById('errorAnswers').classList.toggle('show');
+}
+
+/* ============================================================
+   3. GENERIC TOGGLES
+   ============================================================ */
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  box.classList.toggle('show');
+  btn.textContent = box.classList.contains('show') ? 'Cevabı Gizle' : 'Örnek Cevabı Göster';
+}
+function toggleModel2(btn){
+  const box = btn.nextElementSibling;
+  box.classList.toggle('show');
+  btn.textContent = box.classList.contains('show') ? 'Cevabı Gizle' : 'Örnek Tam Puanlık Cevap';
+}
+function toggleModel(){
+  const box = document.getElementById('modelParagraph');
+  box.classList.toggle('show');
+}
+
+/* ============================================================
+   4. SPEAKING HUB DATA
+   ============================================================ */
+const areas = [
+  {
+    icon:"🌅", title:"Sabah Rutini & Uyanma", words:"routine, usually, always, get up, breakfast",
+    questions:[
+      ["What time do you <b>usually</b> get up on school days?","I usually get up at…"],
+      ["Do you <b>always</b> have breakfast? What do you eat?","I always / sometimes have…"],
+      ["Do you ever skip breakfast? Why?","I sometimes skip it because…"],
+      ["How long does it take you to get ready?","It takes me about… minutes."],
+      ["Do you prefer to shower in the morning or at night?","I prefer… because…"],
+      ["What is the first thing you do after you wake up?","The first thing I do is…"],
+      ["Are you a morning person or a night person? Explain.","I'm definitely a… person because…"],
+      ["Does your morning <b>routine</b> change at the weekend?","At the weekend, I usually…"],
+      ["Who usually wakes you up? Do you use an alarm?","My… wakes me up / I use…"],
+      ["Do you ever feel sleepy in the morning? What do you do?","Yes, I often feel… so I…"]
+    ]
+  },
+  {
+    icon:"🚌", title:"Okula Ulaşım & Zaman Çizelgesi", words:"timetable, attend, deadline, arrive",
+    questions:[
+      ["How do you <b>usually</b> get to school? How long does it take?","I usually go by… It takes…"],
+      ["Do you walk, take the bus, or come by car? Which do you prefer?","I prefer… because…"],
+      ["What time do your lessons start and finish?","They start at… and finish at…"],
+      ["Is your <b>timetable</b> crowded or relaxed this term?","My timetable is… because…"],
+      ["Which day of the week is busiest for you?","… is the busiest because…"],
+      ["Which day do you like most at school? Why?","I like… most because…"],
+      ["Do you <b>usually</b> arrive early, on time, or late?","I usually arrive…"],
+      ["Do you ever miss the bus or feel stressed on the way?","Yes, once I…"],
+      ["What do you usually do while you wait for the bus?","I usually…"],
+      ["How far is your school from your home?","It's about… km / minutes away."]
+    ]
+  },
+  {
+    icon:"📚", title:"Dersler & Sınıf İçi", words:"curriculum, participate in, be interested in, prefer, look forward to",
+    questions:[
+      ["Which subject do you enjoy most? Why?","I enjoy… most because…"],
+      ["Which subject do you find difficult? How do you deal with it?","… is difficult for me, so I…"],
+      ["Do you <b>participate in</b> class discussions? Why / why not?","Yes, I participate because…"],
+      ["Do you <b>prefer</b> group work or individual work?","I prefer… because…"],
+      ["What are you most <b>interested in</b> at school?","I'm most interested in…"],
+      ["Which lesson do you <b>look forward to</b> every week?","I look forward to… because…"],
+      ["How often do you take notes in class?","I always / usually / sometimes…"],
+      ["Do you ever ask your teacher questions when you don't understand?","Yes, I always ask because…"],
+      ["Do you prefer morning or afternoon lessons? Why?","My preference is… because…"],
+      ["Do you think exams are necessary? Why?","I think… because…"],
+      ["Which subject should our <b>curriculum</b> include more of?","I think we need more… because…"],
+      ["Do you use a tablet or a notebook in class? Which is better?","I use… I think… is better because…"]
+    ]
+  },
+  {
+    icon:"🥪", title:"Teneffüs, Öğle Arası & Arkadaşlar", words:"club, attend, participate in, routine",
+    questions:[
+      ["What do you <b>usually</b> do during the break?","I usually…"],
+      ["Where do you eat lunch? With whom?","I eat in… with…"],
+      ["Do you buy food from the canteen or bring it from home?","I usually bring / buy…"],
+      ["Who is your best friend at school? How did you meet?","My best friend is… We met…"],
+      ["What do you talk about with your friends at school?","We usually talk about…"],
+      ["Do you ever study with friends? Is it useful?","Yes, I sometimes study with… It's useful because…"],
+      ["Do you play any games or sports during the break?","I sometimes play…"],
+      ["Do you use your phone during breaks? How often?","I… use my phone during breaks."],
+      ["Do you <b>attend</b> any <b>club</b>? Which one, how often?","I attend the… club every…"],
+      ["Would you like to join a new <b>club</b>? Which one?","I'd like to join… because…"]
+    ]
+  },
+  {
+    icon:"📝", title:"Ödev, Ders Çalışma & Kulüpler", words:"assignment, deadline, extracurricular activity, routine",
+    questions:[
+      ["How much homework do you <b>usually</b> get every day?","I usually get…"],
+      ["When do you do your homework — right after school or at night?","I do it… because…"],
+      ["How do you meet your <b>deadlines</b>?","I always… so I meet them."],
+      ["Do you ever forget a <b>deadline</b>? What happens?","Once I forgot… and…"],
+      ["Do you have a study <b>routine</b>? Describe it.","Yes, I usually… then…"],
+      ["Do you study better alone or with music?","I study better… because…"],
+      ["How do you revise before an exam?","I usually…"],
+      ["Do you do any <b>extracurricular activities</b>?","Yes, I participate in…"],
+      ["How many hours a day do you study? Is it enough?","I study about… hours. I think…"],
+      ["Do you help your classmates with <b>assignments</b>?","Yes, I sometimes help… with…"]
+    ]
+  },
+  {
+    icon:"🏠", title:"Ev Hayatı & Aile", words:"routine, usually, always, never",
+    questions:[
+      ["What do you <b>usually</b> do at home after school?","After school, I usually…"],
+      ["Do you have chores at home? Which ones?","I usually… and sometimes…"],
+      ["How often do you help your family?","I always / sometimes…"],
+      ["Who cooks in your family? Do you ever cook?","My… cooks. I sometimes…"],
+      ["Do you spend enough time with your family?","I think I… because…"],
+      ["Do you have your own room? How do you organize it?","Yes, I… It's usually…"],
+      ["What do your parents say about your school life?","They always tell me…"],
+      ["Do you have brothers or sisters? Do you study together?","I have… We sometimes…"],
+      ["Do your parents help you with homework?","My… sometimes helps me with…"],
+      ["What time do you go to bed on school nights?","I usually go to bed at…"]
+    ]
+  },
+  {
+    icon:"🎮", title:"Boş Zaman, Hobiler & Teknoloji", words:"be interested in, preference, usually, enjoy",
+    questions:[
+      ["What do you <b>usually</b> do in your free time?","In my free time, I usually…"],
+      ["What are you <b>interested in</b> right now?","Right now, I'm interested in…"],
+      ["How much time do you spend on your phone every day?","I spend about… hours."],
+      ["Which social media apps do you use most?","I use… most because…"],
+      ["Do you watch series or films? Which ones?","I usually watch… I enjoy…"],
+      ["Do you listen to music while studying? What kind?","I… listen to… while studying."],
+      ["Do you play any sports? How often?","I play… every…"],
+      ["Do you read books? What kind?","I… read… books."],
+      ["Do you play computer games? How often?","I… play games…"],
+      ["What hobby would you like to start? Why?","I'd like to start… because…"],
+      ["What is your <b>preference</b>: indoor or outdoor activities?","My preference is… because…"]
+    ]
+  },
+  {
+    icon:"🛍️", title:"Hafta Sonu, Alışveriş & Eğlence", words:"usually, prefer, look forward to, attend",
+    questions:[
+      ["What do you <b>usually</b> do at the weekend?","At the weekend, I usually…"],
+      ["Do you study at the weekend? How often?","I… study at the weekend."],
+      ["Where do you go shopping? What do you buy?","I usually go to… I buy…"],
+      ["Do you go to the cinema? How often?","I… go to the cinema."],
+      ["Do you meet your friends at the weekend? What do you do?","I usually meet… and we…"],
+      ["Do you <b>prefer</b> staying at home or going out?","I prefer… because…"],
+      ["What did you do last weekend?","Last weekend, I…"],
+      ["Do you <b>attend</b> any courses (English, music, sport) at the weekend?","Yes, I attend… on…"],
+      ["What do you <b>look forward to</b> at the weekend?","I look forward to… because…"]
+    ]
+  },
+  {
+    icon:"💭", title:"Duygular, Sorunlar & Tercihler", words:"prefer, enjoy, can't stand, feel, be interested in",
+    questions:[
+      ["Do you like school? Why / why not?","I… school because…"],
+      ["What makes you happy at school?","… makes me happy because…"],
+      ["What makes you stressed at school?","I feel stressed when…"],
+      ["Do you ever feel bored in lessons? What do you do?","I sometimes feel bored when… so I…"],
+      ["What is your biggest problem at school?","My biggest problem is…"],
+      ["Are you <b>usually</b> tired after school? Why?","Yes, I'm usually tired because…"],
+      ["What would you change in your school?","I would change… because…"],
+      ["Do you <b>prefer</b> online lessons or face-to-face lessons? Why?","I prefer… because…"],
+      ["What can't you stand about school life?","I can't stand… because…"]
+    ]
+  },
+  {
+    icon:"🚀", title:"Gelecek, Hayaller & Kariyer", words:"curriculum, be interested in, prefer, look forward to",
+    questions:[
+      ["What do you want to be in the future? Why?","I want to be… because…"],
+      ["Which subject will help you most for your future job?","… will help me most because…"],
+      ["Would you like to study abroad? Where?","I'd like to study in… because…"],
+      ["What kind of school would you design if you were a head teacher?","If I were a head teacher, I would…"],
+      ["Do you want to go to university? Which department?","I want to study… because…"],
+      ["What is your dream job?","My dream job is… because…"],
+      ["Do you think English is important for your future? Why?","I think… because…"],
+      ["What are you <b>interested in</b> for your career?","I'm interested in…"],
+      ["What do you <b>look forward to</b> after graduation?","I look forward to… because…"]
+    ]
+  }
+];
+
+/* ---- Render filters ---- */
+const filterBar = document.getElementById('filterBar');
+const allBtn = document.createElement('button');
+allBtn.className = 'filter-btn active';
+allBtn.textContent = 'Tümü (100)';
+allBtn.dataset.filter = 'all';
+filterBar.appendChild(allBtn);
+
+areas.forEach((a,i)=>{
+  const b = document.createElement('button');
+  b.className = 'filter-btn';
+  b.textContent = `${a.icon} ${a.title.split(' ')[0]}`;
+  b.title = a.title;
+  b.dataset.filter = i;
+  filterBar.appendChild(b);
+});
+
+filterBar.addEventListener('click',e=>{
+  const btn = e.target.closest('.filter-btn');
+  if(!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  document.querySelectorAll('.area-card').forEach((card,idx)=>{
+    card.style.display = (f==='all' || String(idx)===f) ? 'block' : 'none';
+    if(f!=='all' && String(idx)===f) card.classList.add('open');
+  });
+});
+
+/* ---- Render areas ---- */
+const areaList = document.getElementById('areaList');
+let globalIndex = 0;
+areas.forEach((a,ai)=>{
+  const card = document.createElement('div');
+  card.className = 'area-card';
+  const rows = a.questions.map(q=>{
+    globalIndex++;
+    return `<div class="q-row">
+      <span class="qn">${globalIndex}</span>
+      <div class="qc">
+        <div class="qq">${q[0]}</div>
+        <div class="qs">${q[1]}</div>
+      </div>
+      <button class="speak-btn" title="Sesli oku" onclick="speakText(this)">🔊</button>
+    </div>`;
+  }).join('');
+
+  card.innerHTML = `
+    <div class="area-head">
+      <div class="area-icon">${a.icon}</div>
+      <div class="area-meta">
+        <h4>Alan ${ai+1}: ${a.title}</h4>
+        <div class="words">🔑 ${a.words}</div>
+      </div>
+      <span class="area-count">${a.questions.length} soru</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="area-body"><div class="area-body-inner">${rows}</div></div>`;
+
+  card.querySelector('.area-head').addEventListener('click',()=>card.classList.toggle('open'));
+  areaList.appendChild(card);
+});
+
+/* ---- Speech synthesis ---- */
+function speakText(btn){
+  const text = btn.closest('.q-row').querySelector('.qq').innerText;
+  if(!('speechSynthesis' in window)){ alert('Tarayıcınız sesli okumayı desteklemiyor.'); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.9;
+  window.speechSynthesis.speak(u);
+}
+
+/* ---- Random question ---- */
+const flatQuestions = [];
+areas.forEach(a=>a.questions.forEach(q=>flatQuestions.push({q:q[0],s:q[1],area:a.title,icon:a.icon})));
+
+function rollQuestion(){
+  const item = flatQuestions[Math.floor(Math.random()*flatQuestions.length)];
+  const qEl = document.getElementById('randomQ');
+  const sEl = document.getElementById('randomStarter');
+  const aEl = document.getElementById('randomArea');
+
+  qEl.style.opacity = 0;
+  sEl.style.opacity = 0;
+  setTimeout(()=>{
+    qEl.innerHTML = item.q;
+    sEl.textContent = item.s;
+    aEl.textContent = `${item.icon} ${item.area}`;
+    aEl.style.display = 'inline-block';
+    qEl.style.transition = 'opacity .3s';
+    sEl.style.transition = 'opacity .3s';
+    qEl.style.opacity = 1;
+    sEl.style.opacity = 1;
+  },150);
+}
+
+/* ============================================================
+   5. VOCABULARY TRACKER (localStorage)
+   ============================================================ */
+const trackerWords = vocab.map(v=>v.w);
+const STORAGE_KEY = 'schoolLifeTracker_v1';
+let trackerState = {};
+
+try{
+  trackerState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+}catch(e){ trackerState = {}; }
+
+const trackerBody = document.getElementById('trackerBody');
+trackerWords.forEach((w,i)=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><b>${w}</b></td>
+    <td class="cell"><input type="checkbox" data-i="${i}" data-c="0"></td>
+    <td class="cell"><input type="checkbox" data-i="${i}" data-c="1"></td>
+    <td class="cell"><input type="checkbox" data-i="${i}" data-c="2"></td>`;
+  trackerBody.appendChild(tr);
+});
+
+function loadTracker(){
+  document.querySelectorAll('#trackerBody input[type=checkbox]').forEach(cb=>{
+    const key = cb.dataset.i + '_' + cb.dataset.c;
+    cb.checked = !!trackerState[key];
+  });
+  updateProgress();
+}
+function saveTracker(){
+  document.querySelectorAll('#trackerBody input[type=checkbox]').forEach(cb=>{
+    const key = cb.dataset.i + '_' + cb.dataset.c;
+    trackerState[key] = cb.checked;
+  });
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(trackerState)); }catch(e){}
+  updateProgress();
+}
+function updateProgress(){
+  let used = 0;
+  trackerWords.forEach((w,i)=>{
+    if(trackerState[i+'_0']) used++;
+  });
+  const pct = Math.round(used/trackerWords.length*100);
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progText').textContent = `${used} / ${trackerWords.length}`;
+}
+trackerBody.addEventListener('change',saveTracker);
+function resetTracker(){
+  trackerState = {};
+  try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+  document.querySelectorAll('#trackerBody input[type=checkbox]').forEach(cb=>cb.checked=false);
+  updateProgress();
+}
+loadTracker();
+
+/* ============================================================
+   6. WRITING — word count + required words
+   ============================================================ */
+const writingArea = document.getElementById('writingArea');
+const wcNum = document.getElementById('wcNum');
+const wcMsg = document.getElementById('wcMsg');
+const requiredWords = ['because','usually','participate in','prefer','look forward to'];
+
+writingArea.addEventListener('input',()=>{
+  const text = writingArea.value.trim();
+  const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+  wcNum.textContent = words;
+
+  wcNum.classList.remove('good','low');
+  if(words >= 80 && words <= 100){
+    wcNum.classList.add('good');
+    wcMsg.textContent = '✓ Harika! Hedef aralıktasın.';
+    wcMsg.style.color = '#059669';
+  } else if(words > 100){
+    wcNum.classList.add('low');
+    wcMsg.textContent = '⚠️ Biraz uzun — kısalt.';
+    wcMsg.style.color = '#d97706';
+  } else if(words > 0){
+    wcNum.classList.add('low');
+    wcMsg.textContent = `⚠️ ${80-words} kelime daha ekle.`;
+    wcMsg.style.color = '#d97706';
+  } else {
+    wcMsg.textContent = '';
+  }
+
+  const lower = text.toLowerCase();
+  document.querySelectorAll('.rw').forEach(el=>{
+    const w = el.dataset.w.toLowerCase();
+    el.classList.toggle('found', lower.includes(w));
+  });
+});
+
+/* ============================================================
+   7. NAV ACTIVE STATE (IntersectionObserver)
+   ============================================================ */
+const navLinks = document.querySelectorAll('.nav-inner a');
+const sections = document.querySelectorAll('main section');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navLinks.forEach(l=>l.classList.toggle('active', l.getAttribute('href') === '#'+id));
+    }
+  });
+},{rootMargin:'-120px 0px -60% 0px', threshold:0});
+
+sections.forEach(s=>observer.observe(s));
+
+/* ============================================================
+   8. INIT
+   ============================================================ */
+rollQuestion();
+</script>
+</body>
+</html>
